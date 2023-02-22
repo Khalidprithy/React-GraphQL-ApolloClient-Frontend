@@ -54,7 +54,7 @@ const SignUp = () => {
                         <input
                             type="text"
                             placeholder="First Name"
-                            className="input input-bordered w-full rounded"
+                            className="input input-bordered border-primary w-full bg-white rounded"
                             {...register("firstName", {
                                 required: {
                                     value: true,
@@ -70,7 +70,7 @@ const SignUp = () => {
                         <input
                             type="text"
                             placeholder="Last Name"
-                            className="input input-bordered w-full rounded"
+                            className="input input-bordered border-primary w-full bg-white rounded"
                             {...register("lastName", {
                                 required: {
                                     value: true,
@@ -88,7 +88,7 @@ const SignUp = () => {
                     <input
                         type="text"
                         placeholder="Address"
-                        className="input input-bordered w-full rounded"
+                        className="input input-bordered border-primary w-full bg-white rounded"
                         {...register("address", {
                             required: {
                                 value: true,
@@ -105,7 +105,7 @@ const SignUp = () => {
                         <input
                             type="email"
                             placeholder="Your Email"
-                            className={`input input-bordered w-full rounded ${errors.email && 'focus:border-red-600 focus:ring-red-600 border-2 border-red-600'}`}
+                            className={`input input-bordered border-primary w-full bg-white rounded ${errors.email && 'focus:border-red-600 focus:ring-red-600 border-2 border-red-600'}`}
                             {...register("email", {
                                 required: {
                                     value: true,
@@ -126,7 +126,7 @@ const SignUp = () => {
                         <input
                             type="number"
                             placeholder="Phone Number"
-                            className="input input-bordered w-full rounded"
+                            className="input input-bordered border-primary w-full bg-white rounded"
                             {...register("number", {
                                 required: {
                                     value: true,
@@ -152,7 +152,7 @@ const SignUp = () => {
                     <input
                         type={passwordShow ? 'text' : 'password'}
                         placeholder="Your Password"
-                        className={`input input-bordered w-full rounded ${errors.password && 'focus:border-red-600 focus:ring-red-600 border-2 border-red-600'}`}
+                        className={`input input-bordered border-primary w-full bg-white rounded ${errors.password && 'focus:border-red-600 focus:ring-red-600 border-2 border-red-600'}`}
                         {...register("password", {
                             required: {
                                 value: true,
@@ -181,7 +181,7 @@ const SignUp = () => {
                         }}
                         placeholder="Confirm Password"
                         type={confirmPasswordShow ? 'text' : 'password'}
-                        className={`input input-bordered w-full rounded ${errors.confirmPassword && 'focus:border-red-600 focus:ring-red-600 border-2 border-red-600'}`}
+                        className={`input input-bordered border-primary w-full bg-white rounded ${errors.confirmPassword && 'focus:border-red-600 focus:ring-red-600 border-2 border-red-600'}`}
                         {...register("confirmPassword", {
                             required: 'Confirm your Password',
                             validate: (value) =>
@@ -199,10 +199,10 @@ const SignUp = () => {
                 </div>
                 {errorMessage}
                 <div className='flex items-center justify-center'>
-                    <button type="submit" class="w-32 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mb-4">Register</button>
+                    <button type="submit" class="w-32 text-white bg-success focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-success dark:focus:ring-blue-800 mb-4">Register</button>
                 </div>
             </form>
-            <div class="flex gap-2 text-sm font-medium text-gray-500 dark:text-gray-300">
+            <div class="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-300">
                 Already have an account?  <NavLink path={'/login'} name={'Login'} />
             </div>
         </div>

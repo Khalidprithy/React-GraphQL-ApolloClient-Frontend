@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import Footer from './Pages/Footer';
 import Home from './Pages/Home';
 import NavBar from './Pages/NavBar';
 import Products from './Pages/Products';
@@ -19,6 +20,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

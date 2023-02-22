@@ -15,7 +15,7 @@ const Product = ({ product }) => {
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{product?.description}</p>
             <p class="mb-3 font-medium text-sm text-gray-500 dark:text-gray-400">Date posted: {product?.date}</p>
             <button className='absolute right-4 top-4'>
-                <AiFillDelete className='text-2xl text-gray-700 hover:text-orange-600' />
+                <AiFillDelete className='text-2xl text-warning hover:text-orange-600' />
 
             </button>
         </div>
