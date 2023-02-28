@@ -48,10 +48,10 @@ const SignUp = () => {
 
     return (
         <div className='h-screen flex justify-center items-center'>
-            <div class="w-10/12 md:w-8/12 lg:w-7/12 xl:w-6/12 p-6 mx-auto mb-4 relative mt-10">
+            <div class="w-full md:w-8/12 lg:w-7/12 xl:w-6/12 p-6 mx-auto mb-4 relative mt-10">
                 <h5 className='capitalize text-3xl font-medium text-gray-600 dark:text-gray-300 text-center mb-10'>Sign Up</h5>
                 <Link to='/'
-                    className='absolute left-5 top-5 border border-green-400 text-green-500 hover:text-white hover:bg-green-500 rounded-full p-2 transition ease-in-out delay-150 duration-300'
+                    className='absolute left-5 -top-5 border border-green-400 text-green-500 hover:text-white hover:bg-green-500 rounded-full p-2 transition ease-in-out delay-150 duration-300'
                 ><AiFillHome className='text-2xl' /></Link>
 
                 {/* Social login */}
@@ -175,7 +175,7 @@ const SignUp = () => {
                         />
                         <div className='text-2xl absolute top-3 right-2'>
                             {
-                                (passwordShow === false) ? <AiFillEyeInvisible onClick={() => setPasswordShow(!passwordShow)}></AiFillEyeInvisible> : <AiFillEye onClick={() => setPasswordShow(!passwordShow)}></AiFillEye>
+                                (passwordShow === false) ? <AiFillEyeInvisible className='text-green-500 hover:text-green-600' onClick={() => setPasswordShow(!passwordShow)}></AiFillEyeInvisible> : <AiFillEye className='text-green-500 hover:text-green-600' onClick={() => setPasswordShow(!passwordShow)}></AiFillEye>
                             }
                         </div>
                         <label className="label">
@@ -199,7 +199,7 @@ const SignUp = () => {
                         />
                         <div className='text-2xl absolute top-3 right-2'>
                             {
-                                (confirmPasswordShow === false) ? <AiFillEyeInvisible onClick={() => setConfirmPasswordShow(!confirmPasswordShow)}></AiFillEyeInvisible> : <AiFillEye onClick={() => setConfirmPasswordShow(!confirmPasswordShow)}></AiFillEye>
+                                (confirmPasswordShow === false) ? <AiFillEyeInvisible className='text-green-500 hover:text-green-600' onClick={() => setConfirmPasswordShow(!confirmPasswordShow)}></AiFillEyeInvisible> : <AiFillEye className='text-green-500 hover:text-green-600' onClick={() => setConfirmPasswordShow(!confirmPasswordShow)}></AiFillEye>
                             }
                         </div>
                         <label className="label">
@@ -208,12 +208,12 @@ const SignUp = () => {
                     </div>
                     {errorMessage}
                     <div className='flex items-center justify-center'>
-                        <button type="submit" class="w-32 text-white bg-success focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-success dark:focus:ring-blue-800 mb-4">Register</button>
+                        <button type="submit" class="w-32 text-white bg-gradient-to-r from-green-500 via-teal-500 to-green-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-success dark:focus:ring-blue-800 mb-4">Register</button>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 text-base font-medium text-gray-500 dark:text-gray-300">
+                        Already have an account?<Link className='text-green-500 dark:text-green-700' to='/login'>Login</Link>
                     </div>
                 </form>
-                <div class="flex items-center justify-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-300">
-                    Already have an account?<Link className='text-green-500 dark:text-green-700' to='/login'>Login</Link>
-                </div>
             </div>
         </div>
     );

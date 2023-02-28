@@ -1,41 +1,62 @@
-import React from 'react';
-import NavLink from '../Components/NavLink';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import AuthContext from '../context/AuthContext';
 import logo from '../images/logo.png'
+import profile from '../images/profilePhoto.png'
 
 const NavBar = () => {
-    return (
 
-        <nav class="bg-accent border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
-            <div class="container flex flex-wrap items-center justify-between mx-auto">
-                <a href="/" class="flex items-center">
-                    <img src={logo} class="h-14 mr-3 sm:h-10" alt="Teebay logo" />
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap text-teal-700 dark:text-white">Teebay</span>
-                </a>
-                <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-                </button>
-                <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                    <ul class="flex flex-col p-4 mt-4 border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                        <li>
-                            <NavLink path={'/'} name={'Home'} />
-                        </li>
-                        <li>
-                            <NavLink path={'/products'} name={'Products'} />
-                        </li>
-                        <li>
-                            <NavLink path={'/my_products'} name={'My Products'} />
-                        </li>
-                        <li>
-                            <NavLink path={'/login'} name={'Login'} />
-                        </li>
-                        <li>
-                            <NavLink path={'/signup'} name={'Sign Up'} />
-                        </li>
+    const { userToken } = useContext(AuthContext);
+
+    return (
+        <div className="navbar bg-gray-50 border-b border-green-500">
+            <div className="navbar-start">
+                <div className="dropdown">
+                    <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    </label>
+                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                        <li><Link to='/'>Home</Link></li>
+                        <li><Link to='/products'>Products</Link></li>
+                        <li><Link to='/about'>About</Link></li>
+                        <li><Link to='/contact'>Contact</Link></li>
                     </ul>
                 </div>
+                <div className='flex gap-2'>
+                    <img className='h-12 w-12' src={logo} alt="" />
+                    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                </div>
             </div>
-        </nav>
+            <div className="navbar-center hidden lg:flex">
+                <ul className="menu menu-horizontal px-1">
+                    <li><Link to='/'>Home</Link></li>
+                    <li><Link to='/products'>Products</Link></li>
+                    <li><Link to='/about'>About</Link></li>
+                    <li><Link to='/contact'>Contact</Link></li>
+                </ul>
+            </div>
+            <div className='navbar-end'>
+                {
+                    userToken ?
+                        <div className="dropdown dropdown-end">
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src={profile} alt='' />
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                                <li><a>Profile</a></li>
+                                <li><a>Settings</a></li>
+                                <li><a>Logout</a></li>
+                            </ul>
+                        </div>
+                        :
+                        <Link to='/login' type="button" class="w-32 text-white bg-gradient-to-r from-green-500 via-teal-500 to-green-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-success dark:focus:ring-blue-800">Login</Link>
+                }
+
+
+            </div>
+        </div>
 
     );
 };
